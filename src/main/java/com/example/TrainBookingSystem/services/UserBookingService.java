@@ -45,7 +45,6 @@ public class UserBookingService {
         Optional<User> foundUser = userList.stream().filter(user1 -> {
             return user1.getName().equals(user.getName()) && UserServiceUtil.checkpassword(user.getPassword(), user1.getHashPassword());
         }).findFirst();
-
         return foundUser.isPresent();
     }
     public Boolean signUp(User user){
@@ -71,9 +70,9 @@ public class UserBookingService {
     }
 
     //cancel Booking
-//     public void cancelBooking(){
-//         user.getTicketsBooked().remove();
-//     }
+     public void cancelBooking(){
+         user.getTicketsBooked().clear();
+     }
 
 
 
