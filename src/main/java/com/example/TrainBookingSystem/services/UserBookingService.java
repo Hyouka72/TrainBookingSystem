@@ -1,6 +1,7 @@
 package com.example.TrainBookingSystem.services;
 
 
+import com.example.TrainBookingSystem.entities.Train;
 import com.example.TrainBookingSystem.entities.User;
 import com.example.TrainBookingSystem.utils.UserServiceUtil;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -23,6 +24,7 @@ public class UserBookingService {
 
 
     //for the existing user
+    //Inthe the UserBookingService there is User Object
     public UserBookingService(User user) throws IOException {
         this.user = user;
         loadUsers();
@@ -41,11 +43,21 @@ public class UserBookingService {
         });
     }
 
+    //For login
     public Boolean loginUser(){
+        //foundUser == user1
         Optional<User> foundUser = userList.stream().filter(user1 -> {
+            //uset1 is compare with all the list of user
             return user1.getName().equals(user.getName()) && UserServiceUtil.checkpassword(user.getPassword(), user1.getHashPassword());
+            //when the user match the data then the match object is send
         }).findFirst();
-        return foundUser.isPresent();
+
+        if(foundUser.isPresent()){
+            //here the user object is changed with the user in the system that match the criteria
+            this.user = foundUser.get();
+            return true;
+        }
+        return false;
     }
     public Boolean signUp(User user){
         try{
@@ -75,9 +87,13 @@ public class UserBookingService {
      }
 
 
+    public List<Train> getTrains(String source, String dest) {
+        try{
+            TrainService trainService = new TrainService();
+            return trainService.searchTrains(source, dest);
 
-
-
-
-
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
