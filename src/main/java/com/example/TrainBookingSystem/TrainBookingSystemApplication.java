@@ -40,7 +40,8 @@ public class TrainBookingSystemApplication {
 			System.out.println("5. Book a Seat");
 			System.out.println("6. cancel my Booking");
 			System.out.println("7. Exit");
-			option = scanner.nextInt();
+			System.out.println("\n");
+			option = Integer.parseInt(scanner.nextLine());
 			switch(option){
 				case 1:
 					System.out.println("Enter the username to signup");
@@ -56,7 +57,7 @@ public class TrainBookingSystemApplication {
 					case 2:
 						System.out.println("Enter the username to login");
 						String nameToLogin = scanner.nextLine();
-						System.out.println("Enter the password to signup");
+						System.out.println("Enter the password to login");
 						String passwordToLogin = scanner.nextLine();
 						User userToLogin = new User(nameToLogin, passwordToLogin,
 								UserServiceUtil.hashPassword(passwordToLogin),
