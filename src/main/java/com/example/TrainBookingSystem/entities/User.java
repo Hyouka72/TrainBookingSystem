@@ -11,6 +11,8 @@ public class User {
     private String hashedPassword;
     @JsonProperty("tickets_booked")
     private List<Ticket> ticketsBooked;
+
+    @JsonProperty("user_id")
     private String userId;
 
     public User() {

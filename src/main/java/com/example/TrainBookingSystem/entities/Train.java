@@ -1,22 +1,35 @@
 package com.example.TrainBookingSystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 public class Train {
+
+    @JsonProperty("train_id")
     private String trainId;
+
+    @JsonProperty("train_no")
     private String trainNo;
     private List<List<Integer>> seats;
+
+    @JsonProperty("station_times")
     private Map<String, String> stationTimes;
     private List<String> stations;
 
     public Train(String trainId, String trainNo, List<List<Integer>> seats, Map<String, String> stationTimes, List<String> stations) {
+
         this.trainId = trainId;
         this.trainNo = trainNo;
         this.seats = seats;
         this.stationTimes = stationTimes;
         this.stations = stations;
+    }
+
+    Train(){
+
     }
 
     public String getTrainId() {

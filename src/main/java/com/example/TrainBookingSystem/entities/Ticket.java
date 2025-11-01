@@ -1,12 +1,19 @@
 package com.example.TrainBookingSystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Date;
 
 public class Ticket {
+
+    @JsonProperty("ticket_id")
     private String ticketId;
+
+    @JsonProperty("user_id")
     private String userId;
     private String source;
     private String destination;
+    @JsonProperty("date_of_travel")
     private Date dateOfTravel;
     private Train train;
 
@@ -17,6 +24,9 @@ public class Ticket {
         this.destination = destination;
         this.dateOfTravel = dateOfTravel;
         this.train = train;
+    }
+
+    public Ticket() {
     }
 
     public String getTicketInfo(){
