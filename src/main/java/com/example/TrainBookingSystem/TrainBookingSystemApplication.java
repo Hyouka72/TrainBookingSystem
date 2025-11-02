@@ -87,23 +87,23 @@ public class TrainBookingSystemApplication {
 					System.out.println("Fetching your bookings");
 					userBookingService.fetchBooking();
 					break;
-//
-//				case 4:
-//					System.out.println("Type your source station");
-//					String source = scanner.next();
-//					System.out.println("Type your destination station");
-//					String dest = scanner.next();
-//					List<Train> trains = userBookingService.getTrains(source, dest);
-//					int index = 1;
-//					for (Train t: trains){
-//						System.out.println(index+" Train id : "+t.getTrainId());
-//						for (Map.Entry<String, String> entry: t.getStationTimes().entrySet()){
-//							System.out.println("station "+entry.getKey()+" time: "+entry.getValue());
-//						}
-//					}
+
+				case 4:
+					System.out.println("Type your source station");
+					String source = scanner.next();
+					System.out.println("Type your destination station");
+					String dest = scanner.next();
+					List<Train> trains = userBookingService.getTrains(source, dest);
+					int index = 1;
+					for (Train t: trains){
+						System.out.println(index+" Train id : "+t.getTrainId());
+						for (Map.Entry<String, String> entry: t.getStationTimes().entrySet()){
+							System.out.println("station "+entry.getKey()+" time: "+entry.getValue());
+						}
+					}
 //					System.out.println("Select a train by typing 1,2,3...");
 //					trainSelectedForBooking = trains.get(scanner.nextInt());
-//					break;
+					break;
 //				case 5:
 //					System.out.println("Select a seat out of these seats");
 //					List<List<Integer>> seats = userBookingService.fetchSeats(trainSelectedForBooking);

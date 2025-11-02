@@ -1,11 +1,15 @@
 package com.example.TrainBookingSystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
 public class User {
     private String name;
+
+
+    @JsonIgnore
     private String password;
     @JsonProperty("hashed_password")
     private String hashedPassword;

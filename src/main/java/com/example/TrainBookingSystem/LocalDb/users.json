@@ -1,7 +1,6 @@
 [
   {
     "name": "rahul",
-    "password": "hhbb11",
     "hashPassword": "$2a$10$O/OWE.xh3gttMANiM4BIX.mo.4/myik1J739DZ25ecVENk8xhMCW2",
     "hashed_password": "$2a$10$O/OWE.xh3gttMANiM4BIX.mo.4/myik1J739DZ25ecVENk8xhMCW2",
     "tickets_booked": [],
@@ -9,7 +8,6 @@
   },
   {
     "name": "khewang",
-    "password": "123",
     "hashPassword": "$2a$10$AqtZMvmtQseCJd552cTjzudtRMVZeifUN7dJhGt85rBZD.KIjRrg.",
     "hashed_password": "$2a$10$AqtZMvmtQseCJd552cTjzudtRMVZeifUN7dJhGt85rBZD.KIjRrg.",
     "tickets_booked": [
@@ -70,5 +68,40 @@
       }
     ],
     "user_id": "f6118d97-3215-4efe-81f1-c1791b2f8ad7"
+  },
+  {
+    "name": "khe",
+    "hashPassword": "$2a$10$1jyAqEnvjcflj8.zHPYfhOcrGOcrpZUMITU6MO3GHZ0CKr6teVPey",
+    "hashed_password": "$2a$10$1jyAqEnvjcflj8.zHPYfhOcrGOcrpZUMITU6MO3GHZ0CKr6teVPey",
+    "tickets_booked": [
+      {
+        "source": "Mumbai",
+        "destination": "Kolkata",
+        "train": {
+          "seats": [
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0]
+          ],
+          "stations": [
+            "Mumbai",
+            "Nagpur",
+            "Kolkata"
+          ],
+          "train_id": "mukl",
+          "train_no": "67890",
+          "station_times": {
+            "Mumbai": "09:30:00",
+            "Nagpur": "15:45:00",
+            "Kolkata": "22:10:00"
+          }
+        },
+        "ticket_id": "ticket_002",
+        "user_id": "ijklmnop",
+        "date_of_travel": 1702156600000
+      }
+    ],
+    "user_id": "1df9b6f8-cbf9-4c39-a4e1-ccb5159df5cb"
   }
 ]
