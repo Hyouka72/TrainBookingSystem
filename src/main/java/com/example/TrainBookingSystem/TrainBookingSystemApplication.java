@@ -39,6 +39,8 @@ public class TrainBookingSystemApplication {
 			System.out.println("5. Book a Seat");
 			System.out.println("6. cancel my Booking");
 			System.out.println("7. Exit");
+
+
 			option = Integer.parseInt(scanner.nextLine());
 			switch(option){
 				case 1:
@@ -90,9 +92,9 @@ public class TrainBookingSystemApplication {
 
 				case 4:
 					System.out.println("Type your source station");
-					String source = scanner.next();
+					String source = scanner.nextLine();
 					System.out.println("Type your destination station");
-					String dest = scanner.next();
+					String dest = scanner.nextLine();
 					List<Train> trains = userBookingService.getTrains(source, dest);
 					int index = 1;
 					for (Train t: trains){
@@ -100,6 +102,7 @@ public class TrainBookingSystemApplication {
 						for (Map.Entry<String, String> entry: t.getStationTimes().entrySet()){
 							System.out.println("station "+entry.getKey()+" time: "+entry.getValue());
 						}
+						index +=1;
 					}
 //					System.out.println("Select a train by typing 1,2,3...");
 //					trainSelectedForBooking = trains.get(scanner.nextInt());

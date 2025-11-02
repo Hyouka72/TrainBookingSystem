@@ -1,10 +1,14 @@
 package com.example.TrainBookingSystem.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Train {
 
@@ -29,9 +33,15 @@ public class Train {
         this.stations = stations;
     }
 
-    Train(){
-
+    //empty constructor is needed to work json
+    public Train() {
+        this.seats = new ArrayList<>();
+        this.stations = new ArrayList<>();
+        this.stationTimes = new HashMap<>();
     }
+
+
+
 
     public String getTrainId() {
         return trainId;
@@ -71,6 +81,17 @@ public class Train {
 
     public void setStations(List<String> stations) {
         this.stations = stations;
+    }
+
+    @Override
+    public String toString() {
+        return "Train{" +
+                "trainId='" + trainId + '\'' +
+                ", trainNo='" + trainNo + '\'' +
+                ", seats=" + seats +
+                ", stationTimes=" + stationTimes +
+                ", stations=" + stations +
+                '}';
     }
 }
 

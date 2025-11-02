@@ -4,6 +4,7 @@ import com.example.TrainBookingSystem.entities.Train;
 import com.example.TrainBookingSystem.entities.User;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,26 +23,28 @@ public class TrainService {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
-    private static final String TRAINS_PATH = "src/main/java/com/example/TrainBookingSystem/LocalDb/users.json";
+    //did silly mistake of not putting trains.json
+    private static final String TRAINS_PATH = "src/main/java/com/example/TrainBookingSystem/LocalDb/trains.json";
 
 
     public List<Train> loadTrains() throws IOException {
         File trains = new File(TRAINS_PATH);
+        System.out.println("hello");
         return trainList = objectMapper.readValue(trains, new TypeReference<List<Train>>() { //deserialization
         });
     }
 
 
     public List<Train> searchTrains(String source, String dest) {
+        System.out.println("hello1");
 
         List<Train> foundtrain = trainList.stream().filter(train1 -> {
-
             List<String> AllStations = train1.getStations();
-
             if( AllStations.contains(source) && AllStations.contains(dest) ) {
 
-                int indexOfSource = source.indexOf(source);
-                int indexOfDest = dest.indexOf(dest);
+                //istead of AllStation, i had put source.indexof(source)
+                int indexOfSource = AllStations.indexOf(source);
+                int indexOfDest = AllStations.indexOf(dest);
 
                 // this only ensures that it is found
                 return indexOfSource < indexOfDest;
