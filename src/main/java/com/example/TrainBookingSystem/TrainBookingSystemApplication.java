@@ -20,9 +20,11 @@ public class TrainBookingSystemApplication {
 
 
 		UserBookingService userBookingService;
+		Train trainSelectedForBooking;
 		try{
 				//to load list of user when webpage is open
 				userBookingService = new UserBookingService();
+				trainSelectedForBooking = new Train();
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -39,6 +41,8 @@ public class TrainBookingSystemApplication {
 			System.out.println("5. Book a Seat");
 			System.out.println("6. cancel my Booking");
 			System.out.println("7. Exit");
+
+
 
 
 			option = Integer.parseInt(scanner.nextLine());
@@ -96,16 +100,28 @@ public class TrainBookingSystemApplication {
 					System.out.println("Type your destination station");
 					String dest = scanner.nextLine();
 					List<Train> trains = userBookingService.getTrains(source, dest);
-					int index = 1;
+					int index = 0;
 					for (Train t: trains){
-						System.out.println(index+" Train id : "+t.getTrainId());
+						System.out.println((index+1)+" Train id : "+t.getTrainId());
 						for (Map.Entry<String, String> entry: t.getStationTimes().entrySet()){
 							System.out.println("station "+entry.getKey()+" time: "+entry.getValue());
 						}
 						index +=1;
 					}
-//					System.out.println("Select a train by typing 1,2,3...");
-//					trainSelectedForBooking = trains.get(scanner.nextInt());
+					System.out.println(index);
+
+					System.out.println("Select a train by typing 1,2,3...");
+					int selectedTrainId = scanner.nextInt();
+					//clears newline from buffer
+					scanner.nextLine();
+					if(selectedTrainId <= index){
+						trainSelectedForBooking = trains.get(selectedTrainId - 1);
+						System.out.println(trainSelectedForBooking);
+					}
+					else {
+						System.out.println("Train not found");
+					}
+
 					break;
 //				case 5:
 //					System.out.println("Select a seat out of these seats");

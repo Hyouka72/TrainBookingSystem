@@ -1,6 +1,6 @@
 [
   {
-    "train_id": "bacs",
+    "train_id": "0001",
     "train_no": "12345",
     "seats": [
       [0,0,0,0,0,0],
@@ -20,7 +20,7 @@
     ]
   },
   {
-    "train_id": "bacs",
+    "train_id": "0002",
     "train_no": "12345",
     "seats": [
       [0,0,0,0,0,0],
